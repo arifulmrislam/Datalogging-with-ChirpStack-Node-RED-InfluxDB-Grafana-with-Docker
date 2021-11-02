@@ -1,0 +1,595 @@
+[
+    {
+        "id": "4b564b9bf8a23ace",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cabd8b86dfce6f57",
+        "type": "mqtt in",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "topic": "application/8/device/+/event/up",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "95b1171e0a9b8af1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "1141826acc344443",
+                "7bb8594e8be2e895",
+                "d5a7c1489fdb5374"
+            ]
+        ]
+    },
+    {
+        "id": "1141826acc344443",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d5a7c1489fdb5374",
+        "type": "function",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "func": "var payload = msg.payload\nmsg.payload.e = msg.payload.object.energy;\nmsg.payload.f = msg.payload.object.frequency;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "a66133c17b1fe127"
+            ]
+        ]
+    },
+    {
+        "id": "a66133c17b1fe127",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7bb8594e8be2e895",
+        "type": "switch",
+        "z": "4b564b9bf8a23ace",
+        "name": "Check Device Name",
+        "property": "payload.deviceName",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Test_Adeunis_FTD",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Modbus_adeunis",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "dfc8042096983219",
+                "f5eda4bda3010344"
+            ],
+            [
+                "aed85d6c045974f6"
+            ]
+        ]
+    },
+    {
+        "id": "dfc8042096983219",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "0517916aeedab4f7",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f5eda4bda3010344",
+        "type": "function",
+        "z": "4b564b9bf8a23ace",
+        "name": "Extract only object json containing variables",
+        "func": "var payload = msg.payload.object;\nx = {payload: payload}\nreturn x;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 120,
+        "wires": [
+            [
+                "5cf63a06ab9eedfa",
+                "aecd7a80eaabac26"
+            ]
+        ]
+    },
+    {
+        "id": "5cf63a06ab9eedfa",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "aecd7a80eaabac26",
+        "type": "change",
+        "z": "4b564b9bf8a23ace",
+        "name": "Keep only few variables",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload.rssi_dl",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.payload",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.snr_dl",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.trigger",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload.ul_counter",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "FTD",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 200,
+        "wires": [
+            [
+                "42e47198c8186738",
+                "67b387bdc49eda77"
+            ]
+        ]
+    },
+    {
+        "id": "42e47198c8186738",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "aed85d6c045974f6",
+        "type": "function",
+        "z": "4b564b9bf8a23ace",
+        "name": "Extract only object json containing variables",
+        "func": "var payload = msg.payload.object;\nmsg = {payload: payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 260,
+        "wires": [
+            [
+                "0517916aeedab4f7",
+                "859abfdb718b4f7b"
+            ]
+        ]
+    },
+    {
+        "id": "67b387bdc49eda77",
+        "type": "influxdb out",
+        "z": "4b564b9bf8a23ace",
+        "influxdb": "373fa459.54e07c",
+        "name": "Weather",
+        "measurement": "restaurante",
+        "precision": "s",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1220,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "859abfdb718b4f7b",
+        "type": "influxdb out",
+        "z": "4b564b9bf8a23ace",
+        "influxdb": "373fa459.54e07c",
+        "name": "Weather Database",
+        "measurement": "energie",
+        "precision": "s",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1190,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "23392a70b3c44705",
+        "type": "mqtt in",
+        "z": "4b564b9bf8a23ace",
+        "name": "Application McD",
+        "topic": "application/6/device/+/event/up",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "95b1171e0a9b8af1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 160,
+        "y": 540,
+        "wires": [
+            [
+                "123e08c0d8218b42",
+                "20c033ed04698a69"
+            ]
+        ]
+    },
+    {
+        "id": "20c033ed04698a69",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "123e08c0d8218b42",
+        "type": "switch",
+        "z": "4b564b9bf8a23ace",
+        "name": "Separate devices on deviceName",
+        "property": "payload.deviceName",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "modbus_dragino",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "temp_exterior_adeunis_temp",
+                "vt": "str"
+            },
+            {
+                "t": "regex",
+                "v": "temp*",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 500,
+        "y": 540,
+        "wires": [
+            [
+                "6bd1502487b3d007"
+            ],
+            [
+                "a163bdceba53ae87"
+            ],
+            [
+                "e97e2bc9ae84d57c"
+            ]
+        ]
+    },
+    {
+        "id": "2d9803299ffc250f",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "058a99dd662b5f57",
+        "type": "debug",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "6bd1502487b3d007",
+        "type": "function",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "func": "//var payload = msg.payload.object;\nvar payload ={};\npayload.e_frigorifica = Number(msg.payload.object.e_frigorifica);\npayload.e_incalzire = Number(msg.payload.object.e_incalzire);\npayload.e_mccafe = Number(msg.payload.object.e_mccafe);\npayload.e_rooftop = Number(msg.payload.object.e_rooftop);\npayload.e_tot = Number(msg.payload.object.e_tot);\npayload.p_frigorifica = Number(msg.payload.object.p_frigorifica);\npayload.p_incalzire = Number(msg.payload.object.p_incalzire);\npayload.p_mccafe = Number(msg.payload.object.p_mccafe);\npayload.p_rooftop = Number(msg.payload.object.p_rooftop);\npayload.p_tot = Number(msg.payload.object.p_tot);\nmsg = {payload: payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 520,
+        "wires": [
+            [
+                "2d9803299ffc250f",
+                "4f374c1e6c035367"
+            ]
+        ]
+    },
+    {
+        "id": "a163bdceba53ae87",
+        "type": "function",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "func": "var payload = {};\npayload.temperature = Number(msg.payload.object.temperature);\npayload.low_bat = msg.payload.object.low_bat;\nmsg = {payload: payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 560,
+        "wires": [
+            [
+                "c65206fecf8c52af",
+                "058a99dd662b5f57"
+            ]
+        ]
+    },
+    {
+        "id": "93571a773f4b293c",
+        "type": "influxdb out",
+        "z": "4b564b9bf8a23ace",
+        "influxdb": "373fa459.54e07c",
+        "name": "Energie",
+        "measurement": "energy_mcd",
+        "precision": "s",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1400,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "c65206fecf8c52af",
+        "type": "influxdb out",
+        "z": "4b564b9bf8a23ace",
+        "influxdb": "373fa459.54e07c",
+        "name": "Temp. exterior",
+        "measurement": "temp_exterior",
+        "precision": "s",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1160,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "e97e2bc9ae84d57c",
+        "type": "function",
+        "z": "4b564b9bf8a23ace",
+        "name": "",
+        "func": "var payload = {};\npayload.temperature = Number(msg.payload.object.temperature);\npayload.low_bat = msg.payload.object.low_bat;\npayload.humidity = Number(msg.payload.object.humidity);\npayload.name = msg.payload.deviceName;\nmsg = {payload: payload}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 640,
+        "wires": [
+            [
+                "058a99dd662b5f57",
+                "b23e0d313e6094eb"
+            ]
+        ]
+    },
+    {
+        "id": "b23e0d313e6094eb",
+        "type": "influxdb out",
+        "z": "4b564b9bf8a23ace",
+        "influxdb": "373fa459.54e07c",
+        "name": "Temp. & Umiditate interior",
+        "measurement": "temp_humidity_interior",
+        "precision": "s",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1190,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4f374c1e6c035367",
+        "type": "function",
+        "z": "4b564b9bf8a23ace",
+        "name": "Filtru permite doar valori pozitive",
+        "func": "var payload ={};\nif (msg.payload.e_frigorifica > 0) {payload.e_frigorifica = msg.payload.e_frigorifica}\nif (msg.payload.e_incalzire > 0) {payload.e_incalzire = msg.payload.e_incalzire}\nif (msg.payload.e_mccafe > 0) {payload.e_mccafe = msg.payload.e_mccafe}\nif (msg.payload.e_rooftop > 0) {payload.e_rooftop = msg.payload.e_rooftop}\nif (msg.payload.e_tot > 0) {payload.e_tot = msg.payload.e_tot}\nif (msg.payload.p_frigorifica > 0) {payload.p_frigorifica = msg.payload.p_frigorifica}\nif (msg.payload.p_incalzire > 0) {payload.p_incalzire = msg.payload.p_incalzire}\nif (msg.payload.p_mccafe > 0) {payload.p_mccafe = msg.payload.p_mccafe}\nif (msg.payload.p_rooftop > 0) {payload.p_rooftop = msg.payload.p_rooftop}\nif (msg.payload.p_tot > 0) {payload.p_tot = msg.payload.p_tot}\nmsg = {payload: payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 520,
+        "wires": [
+            [
+                "93571a773f4b293c",
+                "2d9803299ffc250f"
+            ]
+        ]
+    },
+    {
+        "id": "95b1171e0a9b8af1",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "lora.polisea.ro",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "373fa459.54e07c",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "WEATHER",
+        "name": "Weather",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "",
+        "rejectUnauthorized": false
+    }
+]

@@ -1,0 +1,329 @@
+[
+    {
+        "id": "36f78598e4ea87fb",
+        "type": "tab",
+        "label": "Collect data from ChirpStack and sending those data to Influxdb",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7dab69c5.7dab78",
+        "type": "mqtt in",
+        "z": "36f78598e4ea87fb",
+        "name": "Applicatiioin mcdonalds-project",
+        "topic": "application/5/device/+/event/up",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "a79e3eb.160c7c",
+        "nl": false,
+        "rap": false,
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "c7e942c78fa104e4"
+            ]
+        ]
+    },
+    {
+        "id": "128e4eff.fbe671",
+        "type": "inject",
+        "z": "36f78598e4ea87fb",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "payload",
+        "payload": "{\"appargs\":\"WISE-2410\",\"data\":\"CBA00818015F0108D07FFF\",\"datetime\":\"2021-04-19T07:02:18Z\",\"devaddr\":\"00C23C7E\",\"deveui\":\"A84041000181DC48\",\"fcnt\":1031,\"lsnr\":10.8,\"port\":2,\"rssi\":-19}",
+        "payloadType": "str",
+        "x": 484.16663360595703,
+        "y": 187.00000476837158,
+        "wires": [
+            [
+                "5e77ffc2.6f574"
+            ]
+        ]
+    },
+    {
+        "id": "5e77ffc2.6f574",
+        "type": "function",
+        "z": "36f78598e4ea87fb",
+        "name": "Dragino",
+        "func": "message = msg.payload;\nobj = JSON.parse(message);\n\nif(obj.deveui === \"A84041000181DC48\"){\n    data = obj.data;\n    fport = 1;\n    msg.payload = Decode(fport, data);\n    return msg;\n}\n\nfunction Decode (fPort, bytes) {\n // Decode an uplink message from a buffer\n // (array) of bytes to an object of fields.\n var value=(bytes[0]<<8 | bytes[1]) & 0x3FFF;\n var batV=value/1000;//Battery,units:V\n value=bytes[2]<<8 | bytes[3];\n if(bytes[2] & 0x80)\n {value |= 0xFFFF0000;}\n var temp_SHT=(value/100).toFixed(2);//SHT20,temperature,units:℃\n\n value=bytes[4]<<8 | bytes[5];\n var hum_SHT=(value/10).toFixed(1);//SHT20,Humidity,units:%\n\n value=bytes[7]<<8 | bytes[8];\n if(bytes[7] & 0x80)\n {value |= 0xFFFF0000;}\n var temp_ds=(value/100).toFixed(2);//DS18B20,temperature,units:℃\n  \n \n return {\n Bat_Voltage:batV,\n Temperature_DS:temp_ds,\n Temperature:temp_SHT,\n Humidity:hum_SHT}\n}\n",
+        "outputs": "1",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 180,
+        "wires": [
+            [
+                "70b39d47.ff9bf4"
+            ]
+        ]
+    },
+    {
+        "id": "d308c834.a29df8",
+        "type": "debug",
+        "z": "36f78598e4ea87fb",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 770,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "42f2fb67.ed1c84",
+        "type": "function",
+        "z": "36f78598e4ea87fb",
+        "name": "Convert json to string",
+        "func": "obj=msg.payload;\nnode.log(typeof obj);\nmsg.payload = obj.Temperature;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 240,
+        "wires": [
+            [
+                "84f4f0ef.dbc26",
+                "70b39d47.ff9bf4",
+                "a51f2efb.e435a"
+            ]
+        ]
+    },
+    {
+        "id": "84f4f0ef.dbc26",
+        "type": "debug",
+        "z": "36f78598e4ea87fb",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 830,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3a5068b9.2405c8",
+        "type": "function",
+        "z": "36f78598e4ea87fb",
+        "name": "Convert json to string",
+        "func": "obj=msg.payload;\nnode.log(typeof obj);\nmsg.payload =obj.Humidity;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "84f4f0ef.dbc26"
+            ]
+        ]
+    },
+    {
+        "id": "a51f2efb.e435a",
+        "type": "ui_chart",
+        "z": "36f78598e4ea87fb",
+        "name": "Temperature",
+        "group": "84dd8888.99dc08",
+        "order": 1,
+        "width": 15,
+        "height": 6,
+        "label": "Temperature °C",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 830,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70b39d47.ff9bf4",
+        "type": "ui_gauge",
+        "z": "36f78598e4ea87fb",
+        "name": "",
+        "group": "fa8b35d1.4751b8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature °C ",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 840,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c7e942c78fa104e4",
+        "type": "switch",
+        "z": "36f78598e4ea87fb",
+        "name": "Separate devices on deviceName",
+        "property": "payload.deviceName",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Dragino_LHT65_Indoor_K_T_1_BUH",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "0393b246660433ba"
+            ]
+        ]
+    },
+    {
+        "id": "0393b246660433ba",
+        "type": "function",
+        "z": "36f78598e4ea87fb",
+        "name": "",
+        "func": "var payload = {};\npayload.Humidity = Number(msg.payload.object.Humidity);\npayload.Temperature = Number(msg.payload.object.Temperature);\npayload.Temperature_DS = Number(msg.payload.object.Temperature_DS);\npayload.low_bat = msg.payload.object.Bat_Voltage;\nmsg = {payload: payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 360,
+        "wires": [
+            [
+                "d308c834.a29df8",
+                "b91f5c9f610a8e8e",
+                "42f2fb67.ed1c84",
+                "3a5068b9.2405c8"
+            ]
+        ]
+    },
+    {
+        "id": "b91f5c9f610a8e8e",
+        "type": "influxdb out",
+        "z": "36f78598e4ea87fb",
+        "influxdb": "373fa459.54e07c",
+        "name": "Dragino LHT65",
+        "measurement": "Temperature",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 710,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "a79e3eb.160c7c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "lora.polisea.ro",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "84dd8888.99dc08",
+        "type": "ui_group",
+        "name": "Temperature - Latest Values",
+        "tab": "bdc549a.20f1ab8",
+        "order": 3,
+        "disp": true,
+        "width": 15
+    },
+    {
+        "id": "fa8b35d1.4751b8",
+        "type": "ui_group",
+        "name": "Temperature - Latest Values",
+        "tab": "bdc549a.20f1ab8",
+        "order": 2,
+        "disp": true,
+        "width": "10"
+    },
+    {
+        "id": "373fa459.54e07c",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "WEATHER",
+        "name": "Weather",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "bdc549a.20f1ab8",
+        "type": "ui_tab",
+        "name": "Advantech LoRaWAN/Temp sensor Solution ",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
