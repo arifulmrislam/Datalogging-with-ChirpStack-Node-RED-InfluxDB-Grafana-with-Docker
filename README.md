@@ -57,7 +57,7 @@ At first, we should install docker engine on ubuntu 20.04 LTS. Let’s do it by 
   
 It will show,
 
-<img src= "IMG/Docker on Dell server.png" width=400>
+<img src= "IMG/Docker on Dell server.png" width=1000>
 
 For final check we can run,
 	$ sudo docker run hello world
@@ -84,11 +84,11 @@ At first, we need to create folder for our project, for example /opt/monitoring,
   
 Inside directory we need to create docker-compose.yml file with Grafana and Influxdv services:
 
-<img src= "IMG/Yml file.png" width=800>
+<img src= "IMG/Yml file.png" width=500>
 
   $ vi docker-compose.yml
   
-<img src= "IMG/compose.yml.png" width=400>
+<img src= "IMG/compose.yml.png" width=800>
 
 Now we need to create this docker network and volumes:
   $ docker network create monitoring
