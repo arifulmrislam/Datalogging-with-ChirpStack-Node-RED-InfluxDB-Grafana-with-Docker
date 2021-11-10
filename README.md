@@ -4,7 +4,7 @@ Dell Edge Computer, Docker, InfluxDB, Grafana, Node-Red and ChirpStack
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
-<img src= "Node-Red, Grafana, Docker and Telegraf with Influxdb.png" width=800>
+<img src= "IMG/Node-Red, Grafana, Docker and Telegraf with Influxdb.png" width=800>
 
 The main goal for this article is to show how to start getting system metrics from your servers quick and easy, 
 without spending lot of time for configuring big and complicated monitoring systems. 
@@ -34,7 +34,7 @@ Error:
 
 Ubuntu – dpkg: error processing archive /var/cache/apt/archives/cuda-cublas-9-1_9.1.85.3-1_amd64.deb (–unpack)
 
-<img src= "error.png" width=800>
+<img src= "IMG/error.png" width=800>
 
 
 
