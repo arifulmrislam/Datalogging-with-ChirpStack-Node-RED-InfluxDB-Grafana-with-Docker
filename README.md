@@ -57,7 +57,7 @@ At first, we should install docker engine on ubuntu 20.04 LTS. Let’s do it by 
   
 It will show,
 
-<img src= "IMG/Docker on Dell server.png" width=800>
+<img src= "IMG/Docker on Dell server.png" width=400>
 
 For final check we can run,
 	$ sudo docker run hello world
@@ -88,7 +88,7 @@ Inside directory we need to create docker-compose.yml file with Grafana and Infl
 
   $ vi docker-compose.yml
   
-<img src= "IMG/compose.yml.png" width=600>
+<img src= "IMG/compose.yml.png" width=400>
 
 Now we need to create this docker network and volumes:
   $ docker network create monitoring
@@ -135,7 +135,7 @@ There we need to select Type = TESTDB, give the Name for this data source, then 
 
 Great we just added our influxdb as data source for Grafana, for the time economy we’ll take a prepared dashboard that contains most popular parameters, go to the grafana.com and select one you like. For example, this:
 
-<img src= "IMG/Create dashboard.png" width=800>
+<img src= "IMG/Create dashboard.png" width=500>
 
 Well done now we have a nice 😊 dashboard for minimum of time:
 
