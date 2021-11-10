@@ -88,7 +88,7 @@ Inside directory we need to create docker-compose.yml file with Grafana and Infl
 
   $ vi docker-compose.yml
   
-<img src= "IMG/compose.yml.png" width=800>
+<img src= "IMG/compose.yml.png" width=600>
 
 Now we need to create this docker network and volumes:
   $ docker network create monitoring
@@ -99,10 +99,59 @@ Make sure that all created fine,
 
 <img src= "IMG/Make sure that all created fine.png" width=800>
 
+As we can see the network and volumes was created OK, now we need to prepare the Influxdb parameters, for this we’ll run the container with some environment variables for creating database and users:
 
+	$ docker run --rm \
+	  -e INFLUXDB_DB=TESTDB -e INFLUXDB_ADMIN_ENABLED=true \
+	  -e INFLUXDB_ADMIN_USER=admin \
+	  -e INFLUXDB_ADMIN_PASSWORD=admin \
+	  -e INFLUXDB_USER=TESTDB -e INFLUXDB_USER_PASSWORD=admin \
+	  -v influxdb-volume:/var/lib/influxdb \
+	  influxdb /init-influxdb.sh
 
+Finally, all preparations are done, and we ready to start our new monitoring system, will do it by using docker-compose, go to the /opt/monitoring and run:
 
+  $ docker-compose up -d
+  
+OK, all containers are created and started, so our monitoring system ready to serve incoming requests. We expose few ports, as you can see in docker-compose file, the 8086 HTTP API port for Influxdb data and port 3000 for Grafana web UI.
+And we almost done with our new monitoring system, it’s really quick and easy using Docker. To fully complete we only need to configure Grafana a bit, create a dashboard and new data source for Influxdb.
+For this will go to our server1 public_ip:3000 (192.168.0.1:3000 in our example) in browser, and login to the Grafana web UI for very first time using:
+	login: admin
+	password:admin
 
+<img src= "IMG/Grafana web UI for very first time.png" width=800>
 
+Then Grafana will ask you to change password, and after that you’ll get inside:
 
+<img src= "IMG/Welcome grafana.png" width=800>
 
+Select the Add data source menu to tell Grafana where to get the Influxdb data:
+
+<img src= "IMG/Data Source.png" width=800>
+
+There we need to select Type = TESTDB, give the Name for this data source, then put the URL using our influxdb container name as address. As I say previously Docker give to us an easy service discovery so. OK, we also need to insert the Database name and user/password for our database, these parameters were created by previously running the Influxdb container. Click on Save & Test to see that your data source is OK:
+
+<img src= "IMG/Data source ok.png" width=800>
+
+Great we just added our influxdb as data source for Grafana, for the time economy we’ll take a prepared dashboard that contains most popular parameters, go to the grafana.com and select one you like. For example, this:
+
+<img src= "IMG/Create dashboard.png" width=800>
+
+Well done now we have a nice 😊 dashboard for minimum of time:
+
+<img src= "A Smart IoT Dashboard.png" width=800>
+
+For more information, please follow below links:
+
+https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s
+https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac
+
+Visit our official website: https://polisea.ro/aiot/ 
+
+🚩 Connect with me on social
+- LinkedIn: https://www.linkedin.com/in/ariful-islam-arif-2987b51a3/
+- Twitter: https://twitter.com/arifulislam301
+- Instagram: https://www.instagram.com/ariful_mr_islam/
+
+🔔 Subscribe to my YouTube channel
+https://www.youtube.com/channel/UCED68cm6nHaAlAk0h9I3yAQ
