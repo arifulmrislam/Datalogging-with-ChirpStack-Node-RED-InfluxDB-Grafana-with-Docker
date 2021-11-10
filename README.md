@@ -139,7 +139,7 @@ Great we just added our influxdb as data source for Grafana, for the time econom
 
 Well done now we have a nice 😊 dashboard for minimum of time:
 
-<img src= "A Smart IoT Dashboard.png" width=800>
+<img src= "A Smart IoT Dashboard.png" width=1000>
 
 For more information, please follow below links:
 
