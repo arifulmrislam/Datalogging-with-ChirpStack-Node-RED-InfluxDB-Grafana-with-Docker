@@ -57,7 +57,7 @@ At first, we should install docker engine on ubuntu 20.04 LTS. Let’s do it by 
   
 It will show,
 
-<img src= "IMG/Docker on Dell server.png" width=600>
+<img src= "IMG/Docker on Dell server.png" width=1200>
 
 For final check we can run,
 	$ sudo docker run hello world
