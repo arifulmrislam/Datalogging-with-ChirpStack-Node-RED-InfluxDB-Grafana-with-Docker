@@ -146,6 +146,37 @@ For more information, please follow below links:
 https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s
 https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac
 
+
+InfluxDB Database,
+
+<img src= "Influxdb database.png" width=800>
+
+Problem solutions:
+
+If we fail to login influxdb server by influx command, what will we do?
+
+Ans:
+
+$sudo apt update
+$sudo systemctl enable influxdb
+$sudo systemctl unmask influxdb
+$sudo systemctl start influxdb
+
+$ influx
+$ CREATE USER admin WITH PASSWORD 'admin' WITH ALL PRIVILEGES
+exit
+$ sudo nano /etc/influxdb/influxdb.conf
+
+HTTP
+
+enable = true
+
+bind-address: 8086
+
+For more information, please follow below links:
+
+https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/
+
 Visit our official website: https://polisea.ro/aiot/ 
 
 🚩 Connect with me on social
