@@ -57,7 +57,7 @@ At first, we should install docker engine on ubuntu 20.04 LTS. Let’s do it by 
   
 It will show,
 
-<img src= "IMG/Docker on Dell server.png" width=1000>
+<img src= "IMG/Docker on Dell server.png" width=600>
 
 For final check we can run,
 	$ sudo docker run hello world
@@ -149,7 +149,7 @@ https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf
 
 InfluxDB Database,
 
-<img src= "Influxdb database.png" width=800>
+<img src= "IMG/Influxdb database.png" width=800>
 
 Problem solutions:
 
