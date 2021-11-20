@@ -177,6 +177,65 @@ For more information, please follow below links:
 
 https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/
 
+ChirpStack network server on Ubuntu 20.04 LTS
+
+We can use docker for installing ChirpStack. Please follow the bellows links to install the ChrpStack on ubuntu using docker.
+
+https://www.chirpstack.io/project/install/docker/
+
+I also share a YouTube video link which you help you to understand everything properly.
+
+https://www.youtube.com/watch?v=5CCrpqPZBwY
+
+Now we will set up our Network server with the gateway. For testing purposes, I use the Mikrotik gateway.
+
+1. Add network server,
+
+<img src= "IMG/Add network server 1.png" width=800>
+
+<img src= "IMG/Add network server 2.png" width=800>
+
+2. Check Gateway connection,
+
+<img src= "IMG/Gateway connection 1.png" width=800>
+
+<img src= "IMG/Gateway connection 2.png" width=800>
+
+3. Application is for one site or one project. We can add a lot of devices to one application. If we create three projects like MacDonald, KFC, Ford. 
+Each one is one application. We can add many devices to one application. So, one application is enough for many devices.
+
+<img src= "IMG/Create application.png" width=800>
+
+4. After creating the application, we should create a devices profile because we must add devices under the application project.
+
+<img src= "IMG/Create device profile 1.png" width=800>
+
+<img src= "IMG/Create device profile 2.png" width=800>
+
+<img src= "IMG/Setup join request.png" width=800>
+
+<img src= "IMG/Setup class.png" width=800>
+
+<img src= "IMG/Codec.png" width=800>
+
+5. After that we must go back to the application profile then add devices under the application.
+
+<img src= "IMG/Create application for devices.png" width=800>
+
+<img src= "IMG/Application configurationc.png" width=800>
+
+****Integration means we must choose which application server we'll send our data to. Like thingsboard or othees? ***
+
+<img src= "IMG/Integration.png" width=800>
+
+6. We have to put dashboard devices credential in a variable. When we open a device on the dashboard. We’ll find a name and value
+
+<img src= "IMG/Where data will save.png" width=800>
+
+Node-Red flow to collect data from ChirpStack and Send those data to Influxdb. 
+
+<img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=800>
+
 Visit our official website: https://polisea.ro/aiot/ 
 
 🚩 Connect with me on social
