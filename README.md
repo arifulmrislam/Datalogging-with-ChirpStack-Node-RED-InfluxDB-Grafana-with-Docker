@@ -4,7 +4,7 @@ Dell Edge Computer, Docker, InfluxDB, Grafana, Node-Red and ChirpStack
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
-Agendas:
+Agenda:
 
  Installing InfluxDB, Grafana, Node-RED & ChirpStack as Docker containers
 
