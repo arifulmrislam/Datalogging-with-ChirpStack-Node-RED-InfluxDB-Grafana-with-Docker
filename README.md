@@ -6,17 +6,17 @@ like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
 Agendas:
 
-Installing InfluxDB, Grafana, Node-RED & ChirpStack as Docker containers
+ Installing InfluxDB, Grafana, Node-RED & ChirpStack as Docker containers
 
-Creating a database in InfluxDB
+ Creating a database in InfluxDB
 
-Connecting a data source to Grafana
+ Connecting a data source to Grafana
 
-Using a gateway to forward sensors data NS ChirpStack 
+ Using a gateway to forward sensors data NS ChirpStack 
 
-Using Node-RED to collect NS data and the publishing of measurements to InfluxDB
+ Using Node-RED to collect NS data and the publishing of measurements to InfluxDB
 
-Create a simple web dashboard in Grafana
+ Create a simple web dashboard in Grafana
 
 <img src= "IMG/Node-Red, Grafana, Docker and Telegraf with Influxdb.png" width=800>
 
