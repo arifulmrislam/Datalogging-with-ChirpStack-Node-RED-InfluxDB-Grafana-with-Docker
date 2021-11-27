@@ -4,6 +4,20 @@ Dell Edge Computer, Docker, InfluxDB, Grafana, Node-Red and ChirpStack
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
+Agendas:
+
+Installing InfluxDB, Grafana, Node-RED & ChirpStack as Docker containers
+
+Creating a database in InfluxDB
+
+Connecting a data source to Grafana
+
+Using a gateway to forward sensors data NS ChirpStack 
+
+Using Node-RED to collect NS data and the publishing of measurements to InfluxDB
+
+Create a simple web dashboard in Grafana
+
 <img src= "IMG/Node-Red, Grafana, Docker and Telegraf with Influxdb.png" width=800>
 
 The main goal for this article is to show how to start getting system metrics from your servers quick and easy, 
