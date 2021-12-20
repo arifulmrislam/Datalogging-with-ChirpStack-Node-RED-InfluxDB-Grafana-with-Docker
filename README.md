@@ -231,7 +231,8 @@ Each one is one application. We can add many devices to one application. So, one
 
 <img src= "IMG/Create application for devices.png" width=800>
 
-<img src= "IMG/Application configurationc.png" width=600>
+<img src= "IMG/Application configuration.png" width=800>
+
 
 ## Integration means we must choose which application server we'll send our data to. Like thingsboard or othees? 
 
