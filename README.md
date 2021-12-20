@@ -239,7 +239,7 @@ Each one is one application. We can add many devices to one application. So, one
 
 6. We have to put dashboard devices credential in a variable. When we open a device on the dashboard. We’ll find a name and value
 
-<img src= "IMG/Where data will save.png" width=800>
+<img src= "IMG/Where data will save.png" width=700>
 
 Node-Red flow to collect data from ChirpStack and Send those data to Influxdb. 
 
