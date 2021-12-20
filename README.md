@@ -4,7 +4,7 @@ Dell Edge Computer, Docker, InfluxDB, Grafana, Node-Red and ChirpStack
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
-Agenda:
+## Agenda:
 
  Installing InfluxDB, Grafana, Node-RED & ChirpStack as Docker containers
 
@@ -29,9 +29,9 @@ Topical, you can look at Docker from this side too, as a cross-platform package 
 
 Also, we’ll use part of Tick stack, namely an Influxdb base to store our metrics and Telegraf, like an agent on remote system, for nice and pretty graphs we’ll take Grafana.
 
-Legend:
+## Legend:
 
-Dell Edge Computer,
+## Dell Edge Computer,
 
 	By default, it was installed Ubuntu 18.04 LTS. Then I update the latest version ubuntu 20.04.3 LTS.
 
@@ -44,13 +44,13 @@ Dell Edge Computer,
 
 	After that I got some error. For this reason, when I try to install or update, it showed below error. 
 
-Error:  
+## Error:  
 
 Ubuntu – dpkg: error processing archive /var/cache/apt/archives/cuda-cublas-9-1_9.1.85.3-1_amd64.deb (–unpack)
 
 <img src= "IMG/error.png" width=800>
 
-Solve: 
+## Solve: 
 
 The "trying to overwrite" error implies that i have conflicting packages in my system. I try overwriting the package (can be a bit risky).
 
@@ -60,7 +60,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 
   $sudo dpkg -P cuda-cublas
   
-Install Docker on Dell server,
+## Install Docker on Dell server,
 
 At first, we should install docker engine on ubuntu 20.04 LTS. Let’s do it by this command.
 
@@ -96,7 +96,7 @@ At first, we need to create folder for our project, for example /opt/monitoring,
 
   $ mkdir /opt/monitoring && cd /opt/monitoring
   
-Inside directory we need to create docker-compose.yml file with Grafana and Influxdv services:
+## Inside directory we need to create docker-compose.yml file with Grafana and Influxdv services:
 
 <img src= "IMG/Yml file.png" width=500>
 
@@ -109,7 +109,7 @@ Now we need to create this docker network and volumes:
   $ docker volume create grafana-volume
   $ docker volume create influxdb-volume
 
-Make sure that all created fine,
+## Make sure that all created fine,
 
 <img src= "IMG/Make sure that all created fine.png" width=800>
 
@@ -123,7 +123,7 @@ As we can see the network and volumes was created OK, now we need to prepare the
 	  -v influxdb-volume:/var/lib/influxdb \
 	  influxdb /init-influxdb.sh
 
-Finally, all preparations are done, and we ready to start our new monitoring system, will do it by using docker-compose, go to the /opt/monitoring and run:
+## Finally, all preparations are done, and we ready to start our new monitoring system, will do it by using docker-compose, go to the /opt/monitoring and run:
 
   $ docker-compose up -d
   
@@ -139,7 +139,7 @@ Then Grafana will ask you to change password, and after that you’ll get inside
 
 <img src= "IMG/Welcome grafana.png" width=800>
 
-Select the Add data source menu to tell Grafana where to get the Influxdb data:
+## Select the Add data source menu to tell Grafana where to get the Influxdb data:
 
 <img src= "IMG/Data Source.png" width=800>
 
@@ -155,13 +155,14 @@ Well done now we have a nice 😊 dashboard for minimum of time:
 
 <img src= "A Smart IoT Dashboard.png" width=1200>
 
-For more information, please follow below links:
+## For more information, 
 
-https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s
-https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac
+[YouTube](https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s)
+
+[TowardsdataScience.com](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac)
 
 
-InfluxDB Database,
+## InfluxDB Database,
 
 <img src= "IMG/Influxdb database.png" width=800>
 
@@ -169,7 +170,7 @@ Problem solutions:
 
 If we fail to login influxdb server by influx command, what will we do?
 
-Ans:
+## Ans:
 
 $sudo apt update
 $sudo systemctl enable influxdb
@@ -187,21 +188,15 @@ enable = true
 
 bind-address: 8086
 
-For more information, please follow below links:
-
-https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/
+## For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)
 
 ChirpStack network server on Ubuntu 20.04 LTS
 
-We can use docker for installing ChirpStack. Please follow the bellows links to install the ChrpStack on ubuntu using docker.
+We can use docker for installing ChirpStack. [Install the ChrpStack on ubuntu using docker](https://www.chirpstack.io/project/install/docker/)
 
-https://www.chirpstack.io/project/install/docker/
+[YouTube Tuotorial](https://www.youtube.com/watch?v=5CCrpqPZBwY)
 
-I also share a YouTube video link which you help you to understand everything properly.
-
-https://www.youtube.com/watch?v=5CCrpqPZBwY
-
-Now we will set up our Network server with the gateway. For testing purposes, I use the Mikrotik gateway.
+## Now we will set up our Network server with the gateway. For testing purposes, I use the Mikrotik gateway.
 
 1. Add network server,
 
@@ -238,7 +233,7 @@ Each one is one application. We can add many devices to one application. So, one
 
 <img src= "IMG/Application configurationc.png" width=800>
 
-****Integration means we must choose which application server we'll send our data to. Like thingsboard or othees? ***
+## Integration means we must choose which application server we'll send our data to. Like thingsboard or othees? 
 
 <img src= "IMG/Integration.png" width=800>
 
@@ -250,12 +245,11 @@ Node-Red flow to collect data from ChirpStack and Send those data to Influxdb.
 
 <img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=800>
 
-Visit our official website: https://polisea.ro/aiot/ 
+Visit our official website: [Polisea S.A](https://polisea.ro/aiot/) 
 
 🚩 Connect with me on social
-- LinkedIn: https://www.linkedin.com/in/ariful-islam-arif-2987b51a3/
-- Twitter: https://twitter.com/arifulislam301
-- Instagram: https://www.instagram.com/ariful_mr_islam/
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ariful-islam-arif-2987b51a3/)
+- Twitter: [Twitter](https://twitter.com/arifulislam301)
+- Instagram: [Instagram](https://www.instagram.com/ariful_mr_islam/)
 
-🔔 Subscribe to my YouTube channel
-https://www.youtube.com/channel/UCED68cm6nHaAlAk0h9I3yAQ
+🔔 Subscribe to my YouTube channel: [YouTube](https://www.youtube.com/channel/UCED68cm6nHaAlAk0h9I3yAQ)
