@@ -91,14 +91,16 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 - Finally, install docker composer when we will run docker.yml file. That time we should use docker composer. 
 
-  `$ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
+  ```
+  $ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  ```
   
 - Apply executable permission to the binary:
 ```
   $ sudo chmod +x /usr/local/bin/docker-compose
   $ docker-compose --version
 ``
-`Now we will install Influxdb and Grafana both with docker-compose.yml.`
+- Now we will install Influxdb and Grafana both with docker-compose.yml.
 - At first, we need to create folder for our project, for example /opt/monitoring,
 ```
   $ mkdir /opt/monitoring && cd /opt/monitoring
