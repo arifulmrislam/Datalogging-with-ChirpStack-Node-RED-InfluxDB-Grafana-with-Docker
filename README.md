@@ -111,9 +111,11 @@ If that doesn't fix it, you can remove the package and re-install it.
 ## Inside directory we need to create docker-compose.yml file with Grafana and Influxdv services:
 
 <img src= "IMG/Yml file.png" width=500>
+
 ```
   $ vi docker-compose.yml
 ```  
+
 <img src= "IMG/compose.yml.png" width=800>
 
 - Now we need to create this docker network and volumes:
