@@ -57,7 +57,9 @@ Ubuntu – dpkg: error processing archive /var/cache/apt/archives/cuda-cublas-9-
 
 The "trying to overwrite" error implies that i have conflicting packages in my system. I try overwriting the package (can be a bit risky).
 
-  `$sudo dpkg -i --force-overwrite /var/cache/apt/archives/cuda-cublas-9-1_9.1.85.3-1_amd64.deb`
+```
+  $sudo dpkg -i --force-overwrite /var/cache/apt/archives/cuda-cublas-9-1_9.1.85.3-1_amd64.deb
+```
 
 If that doesn't fix it, you can remove the package and re-install it.
 ```
