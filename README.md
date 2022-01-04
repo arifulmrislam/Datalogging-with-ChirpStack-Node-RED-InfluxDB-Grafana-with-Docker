@@ -99,7 +99,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 ```
   $ sudo chmod +x /usr/local/bin/docker-compose
   $ docker-compose --version
-``
+```
 - Now we will install Influxdb and Grafana both with docker-compose.yml.
 - At first, we need to create folder for our project, for example /opt/monitoring,
 ```
@@ -124,8 +124,8 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 <img src= "IMG/Make sure that all created fine.png" width=800>
 
-As we can see the network and volumes was created OK, now we need to prepare the Influxdb parameters, for this we’ll run the container with some environment variables for creating database and users:
-
+- As we can see the network and volumes was created OK, now we need to prepare the Influxdb parameters, for this we’ll run the container with some environment variables for creating database and users:
+```
 	$ docker run --rm \
 	  -e INFLUXDB_DB=TESTDB -e INFLUXDB_ADMIN_ENABLED=true \
 	  -e INFLUXDB_ADMIN_USER=admin \
@@ -133,11 +133,11 @@ As we can see the network and volumes was created OK, now we need to prepare the
 	  -e INFLUXDB_USER=TESTDB -e INFLUXDB_USER_PASSWORD=admin \
 	  -v influxdb-volume:/var/lib/influxdb \
 	  influxdb /init-influxdb.sh
-
+```
 ## Finally, all preparations are done, and we ready to start our new monitoring system, will do it by using docker-compose, go to the /opt/monitoring and run:
-
+```
   $ docker-compose up -d
-  
+```  
 OK, all containers are created and started, so our monitoring system ready to serve incoming requests. We expose few ports, as you can see in docker-compose file, the 8086 HTTP API port for Influxdb data and port 3000 for Grafana web UI.
 And we almost done with our new monitoring system, it’s really quick and easy using Docker. To fully complete we only need to configure Grafana a bit, create a dashboard and new data source for Influxdb.
 For this will go to our server1 public_ip:3000 (192.168.0.1:3000 in our example) in browser, and login to the Grafana web UI for very first time using:
