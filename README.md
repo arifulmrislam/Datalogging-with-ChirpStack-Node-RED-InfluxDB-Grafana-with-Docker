@@ -142,68 +142,84 @@ If that doesn't fix it, you can remove the package and re-install it.
 ```
   $ docker-compose up -d
 ```  
-OK, all containers are created and started, so our monitoring system ready to serve incoming requests. We expose few ports, as you can see in docker-compose file, the 8086 HTTP API port for Influxdb data and port 3000 for Grafana web UI.
-And we almost done with our new monitoring system, it’s really quick and easy using Docker. To fully complete we only need to configure Grafana a bit, create a dashboard and new data source for Influxdb.
-For this will go to our server1 public_ip:3000 (192.168.0.1:3000 in our example) in browser, and login to the Grafana web UI for very first time using:
+- OK, all containers are created and started, so our monitoring system ready to serve incoming requests. We expose few ports, as you can see in docker-compose file, the 8086       HTTP API port for Influxdb data and port 3000 for Grafana web UI.
+  And we almost done with our new monitoring system, it’s really quick and easy using Docker. To fully complete we only need to configure Grafana a bit, 
+  create a dashboard and new data source for Influxdb.
+  For this will go to our server1 public_ip:3000 (192.168.0.1:3000 in our example) in browser, and login to the Grafana web UI for very first time using:
+  ```
 	login: admin
 	password:admin
+```
 
 <img src= "IMG/Grafana web UI for very first time.png" width=800>
 
-Then Grafana will ask you to change password, and after that you’ll get inside:
+- Then Grafana will ask you to change password, and after that you’ll get inside:
 
 <img src= "IMG/Welcome grafana.png" width=800>
 
+```
 ## Select the Add data source menu to tell Grafana where to get the Influxdb data:
+```
 
 <img src= "IMG/Data Source.png" width=800>
 
-There we need to select Type = TESTDB, give the Name for this data source, then put the URL using our influxdb container name as address. As I say previously Docker give to us an easy service discovery so. OK, we also need to insert the Database name and user/password for our database, these parameters were created by previously running the Influxdb container. Click on Save & Test to see that your data source is OK:
+- There we need to select Type = TESTDB, give the Name for this data source, then put the URL using our influxdb container name as address.
+  As I say previously Docker give to us an easy service discovery so. OK, we also need to insert the Database name and user/password for our database, 
+  these parameters were created by previously running the Influxdb container. Click on Save & Test to see that your data source is OK:
 
 <img src= "IMG/Data source ok.png" width=800>
 
-Great we just added our influxdb as data source for Grafana, for the time economy we’ll take a prepared dashboard that contains most popular parameters, go to the grafana.com and select one you like. For example, this:
+- Great we just added our influxdb as data source for Grafana, for the time economy we’ll take a prepared dashboard that contains most popular parameters, 
+  go to the grafana.com and select one you like. For example, this:
 
 <img src= "IMG/Create dashboard.png" width=500>
 
-Well done now we have a nice 😊 dashboard for minimum of time:
+- Well done now we have a nice 😊 dashboard for minimum of time:
 
 <img src= "A Smart IoT Dashboard.png" width=1200>
 
+```
 ## For more information, 
+```
 
-[YouTube](https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s)
-
-[TowardsdataScience.com](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac)
+[YouTube](https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s) [TowardsdataScience.com](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac)
 
 
-## InfluxDB Database,
+` ## InfluxDB Database`
 
 <img src= "IMG/Influxdb database.png" width=800>
 
-Problem solutions:
+- Problem solutions
 
-If we fail to login influxdb server by influx command, what will we do?
+- If we fail to login influxdb server by influx command, what will we do?
 
-## Ans:
+`## Ans:`
 
+```
 $sudo apt update
 $sudo systemctl enable influxdb
 $sudo systemctl unmask influxdb
 $sudo systemctl start influxdb
+```
 
+```
 $ influx
 $ CREATE USER admin WITH PASSWORD 'admin' WITH ALL PRIVILEGES
-exit
+```
+
+`exit`
+
+```
 $ sudo nano /etc/influxdb/influxdb.conf
+```
 
-HTTP
+`HTTP`
 
-enable = true
+`enable = true`
 
-bind-address: 8086
+b`ind-address: 8086`
 
-## For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)
+` ## For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)`
 
 ChirpStack network server on Ubuntu 20.04 LTS
 
