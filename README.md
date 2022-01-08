@@ -188,7 +188,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 [YouTube](https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s) [TowardsdataScience.com](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac)
 
 
-` ## InfluxDB Database`
+`## InfluxDB Database`
 
 <img src= "IMG/Influxdb database.png" width=800>
 
@@ -196,7 +196,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 - If we fail to login influxdb server by influx command, what will we do?
 
-`## Ans:`
+```## Ans:```
 
 ```
 $sudo apt update
