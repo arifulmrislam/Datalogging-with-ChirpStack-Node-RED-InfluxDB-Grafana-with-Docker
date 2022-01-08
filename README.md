@@ -160,9 +160,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 <img src= "IMG/Welcome grafana.png" width=800>
 
-```
 ## Select the Add data source menu to tell Grafana where to get the Influxdb data:
-```
 
 <img src= "IMG/Data Source.png" width=800>
 
@@ -181,14 +179,13 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 <img src= "A Smart IoT Dashboard.png" width=1200>
 
-```
+
 ## For more information, 
-```
+
 
 [YouTube](https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s) [TowardsdataScience.com](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac)
 
-
-`## InfluxDB Database`
+## InfluxDB Database
 
 <img src= "IMG/Influxdb database.png" width=800>
 
@@ -196,7 +193,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 - If we fail to login influxdb server by influx command, what will we do?
 
-```## Ans:```
+## Ans:
 
 ```
 $sudo apt update
@@ -220,9 +217,9 @@ $ sudo nano /etc/influxdb/influxdb.conf
 
 `enable = true`
 
-b`ind-address: 8086`
+`bind-address: 8086`
 
-` ## For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)`
+## For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)
 
 ChirpStack network server on Ubuntu 20.04 LTS
 
