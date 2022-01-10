@@ -221,9 +221,9 @@ $ sudo nano /etc/influxdb/influxdb.conf
 
 ## For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)
 
-ChirpStack network server on Ubuntu 20.04 LTS
+- ChirpStack network server on Ubuntu 20.04 LTS
 
-We can use docker for installing ChirpStack. [Install the ChrpStack on ubuntu using docker](https://www.chirpstack.io/project/install/docker/)
+- We can use docker for installing ChirpStack. [Install the ChrpStack on ubuntu using docker](https://www.chirpstack.io/project/install/docker/)
 
 [YouTube Tuotorial](https://www.youtube.com/watch?v=5CCrpqPZBwY)
 
@@ -242,7 +242,7 @@ We can use docker for installing ChirpStack. [Install the ChrpStack on ubuntu us
 <img src= "IMG/Gateway connection 2.png" width=800>
 
 3. Application is for one site or one project. We can add a lot of devices to one application. If we create three projects like MacDonald, KFC, Ford. 
-Each one is one application. We can add many devices to one application. So, one application is enough for many devices.
+   Each one is one application. We can add many devices to one application. So, one application is enough for many devices.
 
 <img src= "IMG/Create application.png" width=800>
 
@@ -273,7 +273,7 @@ Each one is one application. We can add many devices to one application. So, one
 
 <img src= "IMG/Where data will save.png" width=800>
 
-Node-Red flow to collect data from ChirpStack and Send those data to Influxdb. 
+- Node-Red flow to collect data from ChirpStack and Send those data to Influxdb. 
 
 <img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=800>
 
