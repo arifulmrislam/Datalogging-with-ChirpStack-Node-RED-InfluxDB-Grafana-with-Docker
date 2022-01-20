@@ -1,8 +1,21 @@
-# Dell-Edge-Computer-Docker-InfluxDB-Grafana-Node-Red-and-ChirpStack
-Dell Edge Computer, Docker, InfluxDB, Grafana, Node-Red and ChirpStack
+# Monitoring a system for one or more servers.
 
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker and Telegraf with Influxdb.
+
+## Tools: 
+
+- Dell Edge Computer(Linux OS-ubuntu20.04)
+
+- Docker
+
+- InfluxDB (Time series database)
+ 
+- Grafana (Data visualization platform)
+
+- Node-Red (A flow-based programming too)
+
+- and ChirpStack (Open-source LoRaWAN Network Server)
 
 ## Agenda:
 
