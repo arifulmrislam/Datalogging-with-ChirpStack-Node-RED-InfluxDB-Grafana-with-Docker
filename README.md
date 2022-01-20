@@ -5,15 +5,12 @@ like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
 ## Technology:
 
-`Dell Edge Computer (Linux OS-ubuntu20.04)` `Docker`
+`(Linux OS-ubuntu20.04)` `Docker` `InfluxDB (Time series database)` `Grafana (Data visualization platform)` `Node-Red (A flow-based programming tool)`
+`ChirpStack (Open-source LoRaWAN Network Server)`
 
-- InfluxDB (Time series database)
- 
-- Grafana (Data visualization platform)
+## Hardware:
 
-- Node-Red (A flow-based programming too)
-
-- ChirpStack (Open-source LoRaWAN Network Server)
+`Dell Edge Computer` `Dragino Temperature and Humidity sensor` `Mikrotik Gateway`
 
 ## Agenda:
 
