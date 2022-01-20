@@ -5,7 +5,7 @@ like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
 ## Technology:
 
-`(Linux OS-ubuntu20.04)` `Docker` `InfluxDB (Time series database)` `Grafana (Data visualization platform)` `Node-Red (A flow-based programming tool)`
+`Linux OS-ubuntu20.04` `Docker` `InfluxDB (Time series database)` `Grafana (Data visualization platform)` `Node-Red (A flow-based programming tool)`
 `ChirpStack (Open-source LoRaWAN Network Server)`
 
 ## Hardware:
