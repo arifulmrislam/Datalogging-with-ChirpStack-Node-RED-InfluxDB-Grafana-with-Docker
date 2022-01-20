@@ -5,7 +5,7 @@ like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
 ## Tools: 
 
-- Dell Edge Computer(Linux OS-ubuntu20.04)
+- Dell Edge Computer (Linux OS-ubuntu20.04)
 
 - Docker
 
@@ -15,7 +15,7 @@ like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
 - Node-Red (A flow-based programming too)
 
-- and ChirpStack (Open-source LoRaWAN Network Server)
+- ChirpStack (Open-source LoRaWAN Network Server)
 
 ## Agenda:
 
