@@ -136,7 +136,8 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 <img src= "IMG/Make sure that all created fine.png" width=800>
 
-- As we can see the network and volumes was created OK, now we need to prepare the Influxdb parameters, for this we’ll run the container with some environment variables for creating database and users:
+- As we can see the network and volumes was created OK, now we need to prepare the Influxdb parameters, 
+  for this we’ll run the container with some environment variables for creating database and users:
 ```
 	$ docker run --rm \
 	  -e INFLUXDB_DB=TESTDB -e INFLUXDB_ADMIN_ENABLED=true \
@@ -248,7 +249,8 @@ $ sudo nano /etc/influxdb/influxdb.conf
 
 <img src= "IMG/Gateway connection 2.png" width=800>
 
-3. Application is for one site or one project. We can add a lot of devices to one application. If we create three projects like MacDonald, KFC, Ford. 
+3. Application is for one site or one project. We can add a lot of devices to one application.
+   If we create three projects like MacDonald, KFC, Ford. 
    Each one is one application. We can add many devices to one application. So, one application is enough for many devices.
 
 <img src= "IMG/Create application.png" width=800>
