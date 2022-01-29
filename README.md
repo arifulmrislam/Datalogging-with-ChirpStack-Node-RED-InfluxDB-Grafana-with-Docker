@@ -190,7 +190,6 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 ## For more information, 
 
-
 [YouTube](https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s) [TowardsdataScience.com](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac)
 
 ## InfluxDB Database
@@ -285,11 +284,11 @@ $ sudo nano /etc/influxdb/influxdb.conf
 
 <img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=800>
 
-Visit our official website: [Polisea S.A](https://polisea.ro/aiot/) 
+`Visit our official website:` [Polisea S.A](https://polisea.ro/aiot/) 
 
 🚩 Connect with me on social
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ariful-islam-arif-2987b51a3/)
-- Twitter: [Twitter](https://twitter.com/arifulislam301)
-- Instagram: [Instagram](https://www.instagram.com/ariful_mr_islam/)
+- `LinkedIn:` [LinkedIn](https://www.linkedin.com/in/ariful-islam-arif-2987b51a3/)
+- `Twitter:` [Twitter](https://twitter.com/arifulislam301)
+- `Instagram:` [Instagram](https://www.instagram.com/ariful_mr_islam/)
 
-🔔 Subscribe to my YouTube channel: [YouTube](https://www.youtube.com/channel/UCED68cm6nHaAlAk0h9I3yAQ)
+🔔 `Subscribe to my YouTube channel:` [YouTube](https://www.youtube.com/channel/UCED68cm6nHaAlAk0h9I3yAQ)
