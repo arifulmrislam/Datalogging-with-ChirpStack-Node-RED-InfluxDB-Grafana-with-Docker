@@ -3,7 +3,7 @@
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
-## Technology:
+## Technologies:
 
 `Linux OS-ubuntu20.04` `Docker` `InfluxDB (Time series database)` `Grafana (Data visualization platform)` `Node-Red (A flow-based programming tool)`
 `ChirpStack (Open-source LoRaWAN Network Server)`
