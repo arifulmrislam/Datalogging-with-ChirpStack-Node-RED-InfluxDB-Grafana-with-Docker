@@ -10,7 +10,7 @@ like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
 ## Hardware:
 
-`Dell Edge Computer` `Dragino Temperature and Humidity sensor` `Mikrotik Gateway`
+`Dell Edge Computer` `Dragino Temperature and Humidity sensors` `Mikrotik Gateway`
 
 ## Agenda:
 
