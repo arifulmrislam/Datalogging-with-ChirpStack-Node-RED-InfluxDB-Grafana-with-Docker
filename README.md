@@ -1,4 +1,4 @@
-# Monitoring a system for one or more servers.
+# Datalogging with ChirpStack, Node-RED, InfluxDB, and Grafana
 
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker and Telegraf with Influxdb.
