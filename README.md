@@ -20,7 +20,7 @@ like Node-Red, Grafana, Docker and Telegraf with Influxdb.
 
  - Connecting a data source to Grafana
 
- - Using a gateway to forward sensors data NS ChirpStack 
+ - Using a gateway to forward sensors data to NS ChirpStack 
 
  - Using Node-RED to collect NS data and the publishing of measurements to InfluxDB
 
