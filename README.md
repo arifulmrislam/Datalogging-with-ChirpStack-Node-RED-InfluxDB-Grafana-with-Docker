@@ -33,9 +33,9 @@ without spending lot of time for configuring big and complicated monitoring syst
 Especially if you only need to take care for few Web servers instead of monitoring big company infrastructure with hundreds of devices.
 
 We’ll use Docker, for the quick deployment our monitoring system, also it’ll gives us a freedom to use any software with dependency free and keep our system clean after. 
-Topical, you can look at Docker from this side too, as a cross-platform package system.
+Topical, we can look at Docker from this side too, as a cross-platform package system.
 
-Also, we’ll use part of Tick stack, namely an Influxdb base to store our metrics and Telegraf, like an agent on remote system, for nice and pretty graphs we’ll take Grafana.
+Also, we’ll use part of Tick stack, namely an Influxdb base to store our metrics , like an agent on remote system, for nice and pretty graphs we’ll take Grafana.
 
 ## Legend:
 
