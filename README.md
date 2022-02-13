@@ -28,9 +28,9 @@ like Node-Red, Grafana, Docker with Influxdb.
 
 <img src= "IMG/Node-Red, Grafana, Docker and Telegraf with Influxdb.png" width=800>
 
-The main goal for this article is to show how to start getting system metrics from your servers quick and easy, 
+The main goal for this article is to show how to build a local solution for our customers without using cloud computing, 
 without spending lot of time for configuring big and complicated monitoring systems. 
-Especially if you only need to take care for few Web servers instead of monitoring big company infrastructure with hundreds of devices.
+Especially if we only need to take care for few Web servers instead of monitoring big company infrastructure with hundreds of devices.
 
 We’ll use Docker, for the quick deployment our monitoring system, also it’ll gives us a freedom to use any software with dependency free and keep our system clean after. 
 Topical, we can look at Docker from this side too, as a cross-platform package system.
