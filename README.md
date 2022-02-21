@@ -2,6 +2,7 @@
 
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker with Influxdb.
+
 ---
 
 ### Technologies:
@@ -12,6 +13,7 @@ like Node-Red, Grafana, Docker with Influxdb.
 ### Hardware:
 
 `Dell Edge Computer` `Dragino Temperature and Humidity sensors` `Mikrotik Gateway`
+
 ---
 
 ### Agenda:
