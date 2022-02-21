@@ -1,18 +1,18 @@
-# Datalogging with ChirpStack, Node-RED, InfluxDB, Grafana with Docker
+## Datalogging with ChirpStack, Node-RED, InfluxDB, Grafana with Docker
 
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker with Influxdb.
 
-## Technologies:
+### Technologies:
 
 `Linux OS-ubuntu20.04` `Docker` `InfluxDB (Time series database)` `Grafana (Data visualization platform)` `Node-Red (A flow-based programming tool)`
 `ChirpStack (Open-source LoRaWAN Network Server)`
 
-## Hardware:
+### Hardware:
 
 `Dell Edge Computer` `Dragino Temperature and Humidity sensors` `Mikrotik Gateway`
 
-## Agenda:
+### Agenda:
 
  - Installing InfluxDB, Grafana, Node-RED & ChirpStack as Docker containers
 
@@ -37,9 +37,9 @@ Topical, we can look at Docker from this side too, as a cross-platform package s
 
 Also, we’ll use part of Tick stack, namely an Influxdb base to store our metrics , like an agent on remote system, for nice and pretty graphs we’ll take Grafana.
 
-## Legend:
+### Legend:
 
-## Dell Edge Computer,
+### Dell Edge Computer,
 
  - By default, it was installed Ubuntu 18.04 LTS. Then I update the latest version ubuntu 20.04.3 LTS.
 
@@ -54,14 +54,14 @@ Also, we’ll use part of Tick stack, namely an Influxdb base to store our metri
 
 - After that I got some error. For this reason, when I try to install or update, it showed below error. 
 
-## Error:  
+### Error:  
 
 ```
 Ubuntu – dpkg: error processing archive /var/cache/apt/archives/cuda-cublas-9-1_9.1.85.3-1_amd64.deb (–unpack)
 ```
 <img src= "IMG/error.png" width=800>
 
-## Solve: 
+### Solve: 
 
 The "trying to overwrite" error implies that i have conflicting packages in my system. I try overwriting the package (can be a bit risky).
 
@@ -73,7 +73,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 ```
   $sudo dpkg -P cuda-cublas
 ```  
-## Install Docker on Dell server,
+### Install Docker on Dell server,
 
 - At first, we should install docker engine on ubuntu 20.04 LTS. Let’s do it by this command.
 ```
@@ -116,7 +116,7 @@ If that doesn't fix it, you can remove the package and re-install it.
   $ mkdir /opt/monitoring && cd /opt/monitoring
 ```
 
-## Inside directory we need to create docker-compose.yml file with Grafana and Influxdv services:
+### Inside directory we need to create docker-compose.yml file with Grafana and Influxdv services:
 
 <img src= "IMG/Yml file.png" width=500>
 
@@ -132,7 +132,7 @@ If that doesn't fix it, you can remove the package and re-install it.
   $ docker volume create grafana-volume
   $ docker volume create influxdb-volume
 ```
-## Make sure that all created fine,
+### Make sure that all created fine,
 
 <img src= "IMG/Make sure that all created fine.png" width=800>
 
@@ -147,7 +147,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 	  -v influxdb-volume:/var/lib/influxdb \
 	  influxdb /init-influxdb.sh
 ```
-## Finally, all preparations are done, and we ready to start our new monitoring system, will do it by using docker-compose, go to the /opt/monitoring and run:
+### Finally, all preparations are done, and we ready to start our new monitoring system, will do it by using docker-compose, go to the /opt/monitoring and run:
 
 ```
   $ docker-compose up -d
@@ -169,7 +169,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 <img src= "IMG/Welcome grafana.png" width=800>
 
-## Select the Add data source menu to tell Grafana where to get the Influxdb data:
+### Select the Add data source menu to tell Grafana where to get the Influxdb data:
 
 <img src= "IMG/Data Source.png" width=800>
 
@@ -189,11 +189,11 @@ If that doesn't fix it, you can remove the package and re-install it.
 <img src= "A Smart IoT Dashboard.png" width=1200>
 
 
-## For more information, 
+### For more information, 
 
 [YouTube](https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s) [TowardsdataScience.com](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac)
 
-## InfluxDB Database
+### InfluxDB Database
 
 <img src= "IMG/Influxdb database.png" width=800>
 
@@ -201,7 +201,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 - If we fail to login influxdb server by influx command, what will we do?
 
-## Ans:
+### Ans:
 
 ```
 $sudo apt update
@@ -227,7 +227,7 @@ $ sudo nano /etc/influxdb/influxdb.conf
 
 `bind-address: 8086`
 
-## For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)
+### For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)
 
 - ChirpStack network server on Ubuntu 20.04 LTS
 
@@ -235,7 +235,7 @@ $ sudo nano /etc/influxdb/influxdb.conf
 
 [YouTube Tuotorial](https://www.youtube.com/watch?v=5CCrpqPZBwY)
 
-## Now we will set up our Network server with the gateway. For testing purposes, I use the Mikrotik gateway.
+### Now we will set up our Network server with the gateway. For testing purposes, I use the Mikrotik gateway.
 
 1. Add network server,
 
@@ -274,7 +274,7 @@ $ sudo nano /etc/influxdb/influxdb.conf
 <img src= "IMG/Application configuration.png" width=800>
 
 
-## Integration means we must choose which application server we'll send our data to. Like thingsboard or othees? 
+### Integration means we must choose which application server we'll send our data to. Like thingsboard or othees? 
 
 <img src= "IMG/Integration.png" width=800>
 
