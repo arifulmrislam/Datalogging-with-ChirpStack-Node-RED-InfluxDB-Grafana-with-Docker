@@ -2,6 +2,7 @@
 
 Hi all, there is a very quick guide how to configure a system monitoring for one or more servers using a modern stack of technologies, 
 like Node-Red, Grafana, Docker with Influxdb.
+---
 
 ### Technologies:
 
@@ -11,6 +12,7 @@ like Node-Red, Grafana, Docker with Influxdb.
 ### Hardware:
 
 `Dell Edge Computer` `Dragino Temperature and Humidity sensors` `Mikrotik Gateway`
+---
 
 ### Agenda:
 
@@ -35,6 +37,8 @@ We will use Docker for the quick deployment of our monitoring system. This will 
 Also, we’ll use part of the Tick stack, namely an InfluxDB base to store our metrics. We'll act as an agent on the remote system and generate pretty graphs using Grafana.
 <div>
 
+---
+	
 ### Dell Edge Computer,
 
  - By default, it was installed Ubuntu 18.04 LTS. Then I update the latest version ubuntu 20.04.3 LTS.
