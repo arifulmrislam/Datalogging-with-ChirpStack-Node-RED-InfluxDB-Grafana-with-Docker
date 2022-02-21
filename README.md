@@ -28,16 +28,12 @@ like Node-Red, Grafana, Docker with Influxdb.
 
 <img src= "IMG/Node-Red, Grafana, Docker and Telegraf with Influxdb.png" width=800>
 
-The main goal for this article is to show how to build a local solution for our customers without using cloud computing, 
-without spending lot of time for configuring big and complicated monitoring systems. 
-Especially if we only need to take care for few Web servers instead of monitoring big company infrastructure with hundreds of devices.
-
-We’ll use Docker, for the quick deployment our monitoring system, also it’ll gives us a freedom to use any software with dependency free and keep our system clean after. 
-Topical, we can look at Docker from this side too, as a cross-platform package system.
-
-Also, we’ll use part of Tick stack, namely an Influxdb base to store our metrics , like an agent on remote system, for nice and pretty graphs we’ll take Grafana.
-
-### Legend:
+<div style="text-align: justify">The main goal of this article is to show how to build a local solution for our customers without using cloud computing. 
+This is without spending a lot of time configuring big and complicated monitoring systems. 
+Especially if we only need to take care of a few Web servers instead of monitoring a large company infrastructure with hundreds of devices.
+We will use Docker for the quick deployment of our monitoring system. This will give us the freedom to use any software without any dependencies and keep our system clean afterwards. Topical, we can look at Docker from this side too, as a cross-platform package system.
+Also, we’ll use part of the Tick stack, namely an InfluxDB base to store our metrics. We'll act as an agent on the remote system and generate pretty graphs using Grafana.
+<div>
 
 ### Dell Edge Computer,
 
