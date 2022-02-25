@@ -103,8 +103,6 @@ If that doesn't fix it, you can remove the package and re-install it.
   $ newgrp docker
 ```
  - Verify that you can run docker commands without sudo. 
-
----
 	
 - Finally, install docker composer when we will run docker.yml file. That time we should use docker composer. 
 
@@ -122,7 +120,6 @@ If that doesn't fix it, you can remove the package and re-install it.
 ```
   $ mkdir /opt/monitoring && cd /opt/monitoring
 ```
----
 	
 ### Inside directory we need to create docker-compose.yml file with Grafana and Influxdv services:
 
