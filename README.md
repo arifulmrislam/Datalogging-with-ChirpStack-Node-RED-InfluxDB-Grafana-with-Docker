@@ -139,7 +139,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 ```
 ### Make sure that all created fine,
 
-<img src= "IMG/Make sure that all created fine.png" width=800>
+<img src= "IMG/Make sure that all created fine.png" width=500>
 
 - As we can see the network and volumes was created OK, now we need to prepare the Influxdb parameters, 
   for this we’ll run the container with some environment variables for creating database and users:
@@ -170,21 +170,21 @@ If that doesn't fix it, you can remove the package and re-install it.
 	password:admin
 ```
 
-<img src= "IMG/Grafana web UI for very first time.png" width=800>
+<img src= "IMG/Grafana web UI for very first time.png" width=500>
 
 - Then Grafana will ask you to change password, and after that you’ll get inside:
 
-<img src= "IMG/Welcome grafana.png" width=800>
+<img src= "IMG/Welcome grafana.png" width=500>
 
 ### Select the Add data source menu to tell Grafana where to get the Influxdb data:
 
-<img src= "IMG/Data Source.png" width=800>
+<img src= "IMG/Data Source.png" width=500>
 
 - There we need to select Type = TESTDB, give the Name for this data source, then put the URL using our influxdb container name as address.
   As I say previously Docker give to us an easy service discovery so. OK, we also need to insert the Database name and user/password for our database, 
   these parameters were created by previously running the Influxdb container. Click on Save & Test to see that your data source is OK:
 
-<img src= "IMG/Data source ok.png" width=800>
+<img src= "IMG/Data source ok.png" width=500>
 
 - Great we just added our influxdb as data source for Grafana, for the time economy we’ll take a prepared dashboard that contains most popular parameters, 
   go to the grafana.com and select one you like. For example, this:
@@ -193,7 +193,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 - Well done now we have a nice 😊 dashboard for minimum of time:
 
-<img src= "A Smart IoT Dashboard.png" width=1200>
+<img src= "A Smart IoT Dashboard.png" width=500>
 
 
 ### For more information, 
@@ -204,7 +204,7 @@ If that doesn't fix it, you can remove the package and re-install it.
 	
 ### InfluxDB Database
 
-<img src= "IMG/Influxdb database.png" width=800>
+<img src= "IMG/Influxdb database.png" width=500>
 
 - Problem solutions
 
@@ -252,52 +252,52 @@ $ sudo nano /etc/influxdb/influxdb.conf
 
 1. Add network server,
 
-<img src= "IMG/Add network server 1.png" width=800>
+<img src= "IMG/Add network server 1.png" width=500>
 
-<img src= "IMG/Add network server 2.png" width=800>
+<img src= "IMG/Add network server 2.png" width=500>
 
 2. Check Gateway connection,
 
-<img src= "IMG/Gateway connection 1.png" width=800>
+<img src= "IMG/Gateway connection 1.png" width=500>
 
-<img src= "IMG/Gateway connection 2.png" width=800>
+<img src= "IMG/Gateway connection 2.png" width=500>
 
 3. Application is for one site or one project. We can add a lot of devices to one application.
    If we create three projects like MacDonald, KFC, Ford. 
    Each one is one application. We can add many devices to one application. So, one application is enough for many devices.
 
-<img src= "IMG/Create application.png" width=800>
+<img src= "IMG/Create application.png" width=500>
 
 4. After creating the application, we should create a devices profile because we must add devices under the application project.
 
-<img src= "IMG/Create device profile 1.png" width=800>
+<img src= "IMG/Create device profile 1.png" width=500>
 
-<img src= "IMG/Create device profile 2.png" width=800>
+<img src= "IMG/Create device profile 2.png" width=500>
 
-<img src= "IMG/Setup join request.png" width=800>
+<img src= "IMG/Setup join request.png" width=500>
 
-<img src= "IMG/Setup class.png" width=800>
+<img src= "IMG/Setup class.png" width=500>
 
-<img src= "IMG/Codec.png" width=800>
+<img src= "IMG/Codec.png" width=500>
 
 5. After that we must go back to the application profile then add devices under the application.
 
-<img src= "IMG/Create application for devices.png" width=800>
+<img src= "IMG/Create application for devices.png" width=500>
 
-<img src= "IMG/Application configuration.png" width=800>
+<img src= "IMG/Application configuration.png" width=500>
 
 
 ### Integration means we must choose which application server we'll send our data to. Like thingsboard or othees? 
 
-<img src= "IMG/Integration.png" width=800>
+<img src= "IMG/Integration.png" width=500>
 
 6. We have to put dashboard devices credential in a variable. When we open a device on the dashboard. We’ll find a name and value
 
-<img src= "IMG/Where data will save.png" width=800>
+<img src= "IMG/Where data will save.png" width=500>
 
 - Node-Red flow to collect data from ChirpStack and Send those data to Influxdb. 
 
-<img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=800>
+<img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=500>
 
 `Visit our official website:` [Polisea S.A](https://polisea.ro/aiot/) 
 	
