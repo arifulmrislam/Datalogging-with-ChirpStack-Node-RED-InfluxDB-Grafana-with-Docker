@@ -252,52 +252,52 @@ $ sudo nano /etc/influxdb/influxdb.conf
 
 1. Add network server,
 
-<img src= "IMG/Add network server 1.png" width=500>
+<img src= "IMG/Add network server 1.png" width=600>
 
-<img src= "IMG/Add network server 2.png" width=500>
+<img src= "IMG/Add network server 2.png" width=600>
 
 2. Check Gateway connection,
 
-<img src= "IMG/Gateway connection 1.png" width=500>
+<img src= "IMG/Gateway connection 1.png" width=600>
 
-<img src= "IMG/Gateway connection 2.png" width=500>
+<img src= "IMG/Gateway connection 2.png" width=600>
 
 3. Application is for one site or one project. We can add a lot of devices to one application.
    If we create three projects like MacDonald, KFC, Ford. 
    Each one is one application. We can add many devices to one application. So, one application is enough for many devices.
 
-<img src= "IMG/Create application.png" width=500>
+<img src= "IMG/Create application.png" width=600>
 
 4. After creating the application, we should create a devices profile because we must add devices under the application project.
 
-<img src= "IMG/Create device profile 1.png" width=500>
+<img src= "IMG/Create device profile 1.png" width=600>
 
-<img src= "IMG/Create device profile 2.png" width=500>
+<img src= "IMG/Create device profile 2.png" width=600>
 
-<img src= "IMG/Setup join request.png" width=500>
+<img src= "IMG/Setup join request.png" width=600>
 
-<img src= "IMG/Setup class.png" width=500>
+<img src= "IMG/Setup class.png" width=600>
 
-<img src= "IMG/Codec.png" width=500>
+<img src= "IMG/Codec.png" width=600>
 
 5. After that we must go back to the application profile then add devices under the application.
 
-<img src= "IMG/Create application for devices.png" width=500>
+<img src= "IMG/Create application for devices.png" width=600>
 
-<img src= "IMG/Application configuration.png" width=500>
+<img src= "IMG/Application configuration.png" width=600>
 
 
 ### Integration means we must choose which application server we'll send our data to. Like thingsboard or othees? 
 
-<img src= "IMG/Integration.png" width=500>
+<img src= "IMG/Integration.png" width=600>
 
 6. We have to put dashboard devices credential in a variable. When we open a device on the dashboard. We’ll find a name and value
 
-<img src= "IMG/Where data will save.png" width=500>
+<img src= "IMG/Where data will save.png" width=600>
 
 - Node-Red flow to collect data from ChirpStack and Send those data to Influxdb. 
 
-<img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=500>
+<img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=600>
 
 `Visit our official website:` [Polisea S.A](https://polisea.ro/aiot/) 
 	
