@@ -237,12 +237,16 @@ $ sudo nano /etc/influxdb/influxdb.conf
 `bind-address: 8086`
 
 ### For more information, [InfluxDB & Grafana](https://www.superhouse.tv/41-datalogging-with-mqtt-node-red-influxdb-and-grafana/)
+	
+---
 
-- ChirpStack network server on Ubuntu 20.04 LTS
+### ChirpStack network server on Ubuntu 20.04 LTS
 
 - We can use docker for installing ChirpStack. [Install the ChrpStack on ubuntu using docker](https://www.chirpstack.io/project/install/docker/)
 
 [YouTube Tuotorial](https://www.youtube.com/watch?v=5CCrpqPZBwY)
+	
+---
 
 ### Now we will set up our Network server with the gateway. For testing purposes, I use the Mikrotik gateway.
 
@@ -296,6 +300,8 @@ $ sudo nano /etc/influxdb/influxdb.conf
 <img src= "IMG/Node-Red flow to collect data from ChirpStack and Sending those data to Influxdb.png" width=800>
 
 `Visit our official website:` [Polisea S.A](https://polisea.ro/aiot/) 
+	
+---
 
 🚩 Connect with me on social
 - `LinkedIn:` [LinkedIn](https://www.linkedin.com/in/ariful-islam-arif-2987b51a3/)
