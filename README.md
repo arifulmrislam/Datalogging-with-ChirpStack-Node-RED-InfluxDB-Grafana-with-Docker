@@ -30,7 +30,7 @@ like Node-Red, Grafana, Docker with Influxdb.
 
  - Create a simple web dashboard in Grafana
 
-<img src= "IMG/Node-Red, Grafana, Docker and Telegraf with Influxdb.png" width=800>
+<img src= "IMG/Node-Red, Grafana, Docker and Telegraf with Influxdb.png" width=500>
 
 <div style="text-align: justify">The main goal of this article is to show how to build a local solution for our customers without using cloud computing. 
 This is without spending a lot of time configuring big and complicated monitoring systems. 
