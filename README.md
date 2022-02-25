@@ -74,7 +74,10 @@ The "trying to overwrite" error implies that i have conflicting packages in my s
 If that doesn't fix it, you can remove the package and re-install it.
 ```
   $sudo dpkg -P cuda-cublas
-```  
+``` 
+	
+---
+	
 ### Install Docker on Dell server,
 
 - At first, we should install docker engine on ubuntu 20.04 LTS. Let’s do it by this command.
@@ -101,6 +104,8 @@ If that doesn't fix it, you can remove the package and re-install it.
 ```
  - Verify that you can run docker commands without sudo. 
 
+---
+	
 - Finally, install docker composer when we will run docker.yml file. That time we should use docker composer. 
 
   ```
@@ -117,7 +122,8 @@ If that doesn't fix it, you can remove the package and re-install it.
 ```
   $ mkdir /opt/monitoring && cd /opt/monitoring
 ```
-
+---
+	
 ### Inside directory we need to create docker-compose.yml file with Grafana and Influxdv services:
 
 <img src= "IMG/Yml file.png" width=500>
@@ -153,8 +159,10 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 ```
   $ docker-compose up -d
-```  
-
+``` 
+	
+---
+	
 - OK, all containers are created and started, so our monitoring system ready to serve incoming requests. We expose few ports, as you can see in docker-compose file, the 8086       HTTP API port for Influxdb data and port 3000 for Grafana web UI.
   And we almost done with our new monitoring system, it’s really quick and easy using Docker. To fully complete we only need to configure Grafana a bit, 
   create a dashboard and new data source for Influxdb.
@@ -195,6 +203,8 @@ If that doesn't fix it, you can remove the package and re-install it.
 
 [YouTube](https://www.youtube.com/watch?v=xWnI3sHMbGI&t=156s) [TowardsdataScience.com](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac)
 
+---	
+	
 ### InfluxDB Database
 
 <img src= "IMG/Influxdb database.png" width=800>
