@@ -61,7 +61,7 @@ Also, we’ll use part of the Tick stack, namely an InfluxDB base to store our m
 ```
 Ubuntu – dpkg: error processing archive /var/cache/apt/archives/cuda-cublas-9-1_9.1.85.3-1_amd64.deb (–unpack)
 ```
-<img src= "IMG/error.png" width=800>
+<img src= "IMG/error.png" width=500>
 
 ### Solve: 
 
