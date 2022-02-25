@@ -129,7 +129,7 @@ If that doesn't fix it, you can remove the package and re-install it.
   $ vi docker-compose.yml
 ```  
 
-<img src= "IMG/compose.yml.png" width=800>
+<img src= "IMG/compose.yml.png" width=500>
 
 - Now we need to create this docker network and volumes:
 ```
